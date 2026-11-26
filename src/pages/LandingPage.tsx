@@ -1,10 +1,10 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sprout, CalendarClock, ThermometerSun, AlertTriangle, TrendingUp } from 'lucide-react';
 import { useFarmData } from '../context/FarmDataContext';
 import { formatWeightKg } from '../utils/formatters';
-
-const HERO_IMG = '/src/assets/images/hero_vertical_farm_1795698952444.jpg';
-const CLOSEUP_IMG = '/src/assets/images/zone_hydroponic_closeup_1795698952002.jpg';
+import HERO_IMG from '../assets/images/hero_vertical_farm_1795698952444.jpg';
+import CLOSEUP_IMG from '../assets/images/zone_hydroponic_closeup_1795698952002.jpg';
 
 export function LandingPage() {
   const { activeBatches, predictions, state } = useFarmData();
@@ -17,6 +17,11 @@ export function LandingPage() {
     const stage = predictions[b.id]?.growthStage;
     return stage === 'Ready for Harvest' || stage === 'Approaching Maturity';
   }).length;
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <div className="min-h-screen bg-[#F7F9F5] text-[#202923]">
@@ -36,24 +41,28 @@ export function LandingPage() {
           <nav className="hidden items-center gap-7 text-sm font-medium text-[#5B6660] md:flex">
             <a
               href="#problem"
+              onClick={(e) => scrollToSection(e, 'problem')}
               className="transition-colors hover:text-[#153F32] whitespace-nowrap shrink-0"
             >
               Problem
             </a>
             <a
               href="#solution"
+              onClick={(e) => scrollToSection(e, 'solution')}
               className="transition-colors hover:text-[#153F32] whitespace-nowrap shrink-0"
             >
               Solution
             </a>
             <a
               href="#capabilities"
+              onClick={(e) => scrollToSection(e, 'capabilities')}
               className="transition-colors hover:text-[#153F32] whitespace-nowrap shrink-0"
             >
               Capabilities
             </a>
             <a
               href="#how-it-works"
+              onClick={(e) => scrollToSection(e, 'how-it-works')}
               className="transition-colors hover:text-[#153F32] whitespace-nowrap shrink-0"
             >
               How It Works
@@ -98,6 +107,7 @@ export function LandingPage() {
                 </Link>
                 <a
                   href="#how-it-works"
+                  onClick={(e) => scrollToSection(e, 'how-it-works')}
                   className="inline-flex items-center rounded-lg border border-[#DFE6DD] bg-white px-5 py-3 text-sm font-semibold text-[#202923] transition-colors hover:bg-[#F7F9F5] whitespace-nowrap"
                 >
                   Discover How It Works

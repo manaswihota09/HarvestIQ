@@ -18,8 +18,7 @@ import {
 } from 'lucide-react';
 import { useFarmData } from '../../context/FarmDataContext';
 import { formatDateShort } from '../../utils/formatters';
-
-const AVATAR_URL = '/src/assets/images/avatar_farm_manager_1795698952962.jpg';
+import AVATAR_URL from '../../assets/images/avatar_farm_manager_1795698952962.jpg';
 
 const NAV_ITEMS = [
   { to: '/dashboard', label: 'Overview', icon: LayoutDashboard },

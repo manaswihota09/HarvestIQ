@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { ToastProvider } from './components/ui/Toast';
 import { FarmDataProvider } from './context/FarmDataContext';
 import { AnalyticsPage } from './pages/AnalyticsPage';
@@ -15,7 +15,7 @@ export default function App() {
   return (
     <ToastProvider>
       <FarmDataProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
@@ -28,7 +28,7 @@ export default function App() {
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </FarmDataProvider>
     </ToastProvider>
   );

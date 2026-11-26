@@ -31,3 +31,13 @@ Type-check and build for production:
 npm run lint
 npm run build
 ```
+
+## GitHub Pages Deployment
+
+This project includes `.github/workflows/deploy.yml` and `HashRouter` routing configured for `github.io` hosting:
+
+1. Push the repository to GitHub (using the `main` branch).
+2. Open your repository on GitHub and go to **Settings → Pages**.
+3. Under **Build and deployment → Source**, select **GitHub Actions**.
+4. GitHub will automatically build and publish the site at `https://<your-username>.github.io/<repo-name>/`.
+
